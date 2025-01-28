@@ -1,10 +1,12 @@
 const express = require('express');
 
 const {generateMap} = require("./helpers/generateMap");
+const cors = require('cors');
 
 const app = express();
 
 app.use(express.json());
+app.use(cors({}));
 
 app.get('/api/generate', (req, res) => {
     const dungeon = generateMap();
