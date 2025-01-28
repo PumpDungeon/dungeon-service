@@ -17,6 +17,8 @@ app.get('/api/generate', (req, res) => {
 });
 
 app.post('/api/move', (req, res) => {
+    console.log(req.body);
+
     const {map, position} = req.body
     if (map[position.x][position.y] === 2) {
         return res.status(200).send({
