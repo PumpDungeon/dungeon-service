@@ -18,15 +18,17 @@ app.get('/api/generate', (req, res) => {
 
 app.post('/api/move', (req, res) => {
     const {map, position} = req.body
-    if (map[position.x][position.y] === 2) {
+    if (map[position.y][position.x] === 2) {
         return res.status(200).send({
-            message: 'Not possible'
+            message: 'Not possible',
+            possible: false
         })
     }
 
     return res.status(200).send({
         fight: Math.random() >= 0.8,
-        position
+        position,
+        possible: true
     });
 });
 
