@@ -18,7 +18,7 @@ app.get('/api/generate', (req, res) => {
 
 app.post('/api/move', (req, res) => {
     const {map, position} = req.body
-    if (map[position.y][position.x] === 2) {
+    if (map[position.y][position.x] === 2 || position.y < 0 || position.x < 0 || position.y >= map.length || position.x >= map[0].length) {
         return res.status(200).send({
             message: 'Not possible',
             possible: false
